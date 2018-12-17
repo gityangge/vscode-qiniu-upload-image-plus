@@ -1,9 +1,9 @@
 {
-    "name": "qiniu-upload-image",
-    "displayName": "qiniu-upload-image",
+    "name": "qiniu-upload-image-plus",
+    "displayName": "qiniu-upload-image-plus",
     "description": "Picture upload generate markdown link format.",
-    "version": "1.1.1",
-    "publisher": "imys",
+    "version": "1.1.0",
+    "publisher": "yangge",
     "engines": {
         "vscode": "^1.17.0"
     },
@@ -24,8 +24,15 @@
             },
             {
                 "command": "extension.qiniu.select",
+                "title": "Paste Image To Qiniu",
                 "key": "shift+o",
                 "mac": "shift+o",
+                "when": "editorTextFocus && editorLangId == 'markdown'"
+            },
+            {
+                "command": "extension.qiniu.copy",
+                "key": "shift+v",
+                "mac": "shift+v",
                 "when": "editorTextFocus && editorLangId == 'markdown'"
             }
         ],
@@ -62,6 +69,11 @@
                     "type": "string",
                     "default": "",
                     "description": "七牛图床域名。"
+                },
+                "qiniu.localPath": {
+                    "type": "string",
+                    "default": "./img",
+                    "description": "图片本地保存位置"
                 }
             }
         }
@@ -70,10 +82,17 @@
         "postinstall": "node ./node_modules/vscode/bin/install"
     },
     "devDependencies": {
+        "@types/mocha": "^2.2.32",
+        "@types/node": "^6.0.40",
+        "eslint": "^3.6.0",
+        "mocha": "^2.3.3",
+        "typescript": "^2.9.2",
         "vscode": "^1.1.0"
     },
     "dependencies": {
-        "qiniu": "^6.1.11"
+        "fs": "0.0.1-security",
+        "moment": "^2.23.0",
+        "qiniu": "^6.1.13"
     },
     "license": "MIT",
     "repository": {
