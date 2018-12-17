@@ -24,7 +24,6 @@
 ```bash
 ext install qiniu-upload-image-plus
 ```
-> 还没上传
 
 ## User Settings
 
