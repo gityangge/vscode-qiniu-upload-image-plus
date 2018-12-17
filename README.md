@@ -1,4 +1,4 @@
-# qiniu-upload-image
+# qiniu-upload-image-plus
 
 一个 VS Code 插件，编写 Markdown 时可以快捷上传本地图片获取七牛图床外链。
 
@@ -12,6 +12,8 @@
 
 1. 粘贴图片路径上传：`SHIFT + P`
 2. 直接选择图片上传：`SHIFT + O`
+3. 截屏图片上传： `SHIFT + V`
+> 支持qq，微信等工具的截图
 
 > 按键需在英文编辑状态下有效，功能2 需要升级 vscode 到 v1.17+。
 
@@ -20,8 +22,9 @@
 `Ctrl+P` 输入命令：
 
 ```bash
-ext install qiniu-upload-image
+ext install qiniu-upload-image-plus
 ```
+> 还没上传
 
 ## User Settings
 
@@ -46,11 +49,18 @@ ext install qiniu-upload-image
     "qiniu.remotePath": "${fileName}",
 
     // 七牛图床域名
-    "qiniu.domain": "http://xxxxx.xxxx.com"
+    "qiniu.domain": "http://xxxxx.xxxx.com",
+
+    // 截图图片本地保存路径（因为七牛的api限制，截图上传是先将黏贴板里的图片存储到本地，然后再根据这个路径上传图片
+    // 如果介意，可以再图片存储路径添加自动删除脚本
+    "qiniu.location": "./img"
 }
 ```
 
-## Repository
+## 参考
+本插件是综合一下两个实现，支持开源，尊重原创
+
+[https://github.com/favers/vscode-qiniu-upload-image](https://github.com/favers/vscode-qiniu-upload-image)
 
 [https://github.com/yscoder/vscode-qiniu-upload-image](https://github.com/yscoder/vscode-qiniu-upload-image)
 
